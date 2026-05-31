@@ -70,7 +70,7 @@
   .hero::before {
     content: ""; position: absolute; left: 50%; top: 40px; transform: translateX(-50%);
     width: 720px; max-width: 110%; height: 420px; pointer-events: none; z-index: 0;
-    background: radial-gradient(closest-side, rgba(255,90,31,0.16), transparent 72%);
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--orange) 16%, transparent), transparent 72%);
     filter: blur(8px);
   }
   .hero .container { position: relative; z-index: 1; }
@@ -164,6 +164,27 @@
   .foot a { color: var(--muted); }
   .foot a:hover { color: var(--text); }
   .foot .links { display: flex; gap: 22px; }
+
+  /* color picker — временный переключатель оттенков */
+  .picker {
+    position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 200;
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 16px; border-radius: 16px;
+    background: rgba(20,16,13,0.86); backdrop-filter: blur(12px);
+    border: 1px solid var(--hair); box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    font-size: 13px; max-width: calc(100vw - 24px);
+  }
+  .picker .pk-label { color: var(--muted); white-space: nowrap; }
+  .picker .pk-label b { color: var(--text); font-weight: 600; }
+  .picker .pk-swatches { display: flex; gap: 9px; }
+  .picker .sw {
+    width: 30px; height: 30px; border-radius: 9px; cursor: pointer; border: 2px solid transparent;
+    transition: transform .12s, border-color .12s; position: relative;
+  }
+  .picker .sw:hover { transform: scale(1.12); }
+  .picker .sw.active { border-color: #fff; }
+  .picker .sw.active::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; color: #1A0E07; font-weight: 800; font-size: 14px; }
+  @media (max-width: 520px) { .picker .pk-label { display: none; } }
 </style>
 </head>
 <body>
@@ -331,7 +352,41 @@ console.log(result.assets[<span class="o">0</span>].url);</pre>
   </div>
 </footer>
 
+<!-- COLOR PICKER -->
+<div class="picker" id="picker">
+  <span class="pk-label">Оттенок: <b id="pk-name">Flame</b> <span id="pk-hex" style="color:var(--orange)">#FF5A1F</span></span>
+  <div class="pk-swatches" id="pk-sw"></div>
+</div>
+
 <script>
+  // 5 рыжих вариантов: [название, основной, насыщенный(ховер)]
+  var SHADES = [
+    ["Flame",      "#FF5A1F", "#E8480F"],
+    ["Tangerine",  "#FF6A1A", "#EE560C"],
+    ["Scarlet",    "#FF4719", "#E83A0C"],
+    ["Burnt",      "#ED5314", "#D5440B"],
+    ["Orange-Red", "#FF5500", "#E84A00"]
+  ];
+  (function buildPicker(){
+    var wrap = document.getElementById('pk-sw');
+    SHADES.forEach(function(s, idx){
+      var b = document.createElement('button');
+      b.className = 'sw' + (idx===0 ? ' active' : '');
+      b.style.background = s[1];
+      b.title = s[0] + ' ' + s[1];
+      b.onclick = function(){
+        document.documentElement.style.setProperty('--orange', s[1]);
+        document.documentElement.style.setProperty('--orange-deep', s[2]);
+        document.getElementById('pk-name').textContent = s[0];
+        var hx = document.getElementById('pk-hex');
+        hx.textContent = s[1]; hx.style.color = s[1];
+        document.querySelectorAll('.sw').forEach(function(e){ e.classList.remove('active'); });
+        b.classList.add('active');
+      };
+      wrap.appendChild(b);
+    });
+  })();
+
   function joinWaitlist(e) {
     e.preventDefault();
     var email = document.getElementById('wl-email').value;
