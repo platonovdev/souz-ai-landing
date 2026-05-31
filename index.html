@@ -50,7 +50,7 @@
   .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
   .logo { display: inline-flex; align-items: center; gap: 11px; font-family: "Unbounded", sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.02em; }
   .logo svg { width: 30px; height: 30px; display: block; }
-  .logo .ai { color: var(--orange); }
+  .logo .ai { color: var(--orange); margin-left: 0.14em; }
   .nav-links { display: flex; gap: 30px; align-items: center; }
   .nav-links a { color: var(--muted); font-size: 15px; font-weight: 500; transition: color .15s; }
   .nav-links a:hover { color: var(--text); }
@@ -63,6 +63,8 @@
   .btn-primary:hover { background: var(--orange-deep); transform: translateY(-1px); }
   .btn-ghost { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.22); }
   .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+  .btn-nav { background: transparent; color: #fff; border-color: rgba(255,255,255,0.2); font-weight: 500; padding: 10px 18px; }
+  .btn-nav:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.4); transform: translateY(-1px); }
   @media (max-width: 720px) { .nav-links a:not(.btn) { display: none; } }
 
   /* hero */
@@ -170,12 +172,12 @@
 
 <header>
   <div class="container nav">
-    <a href="#" class="logo">СОЮЗ<span class="ai"> AI</span></a>
+    <a href="#" class="logo">СОЮЗ<span class="ai">AI</span></a>
     <nav class="nav-links">
       <a href="#features">Возможности</a>
       <a href="#platform">Платформа</a>
       <a href="#api">API</a>
-      <a href="#waitlist" class="btn btn-primary">Получить доступ</a>
+      <a href="#waitlist" class="btn btn-nav">Получить доступ</a>
     </nav>
   </div>
 </header>
@@ -321,7 +323,7 @@ console.log(result.assets[<span class="o">0</span>].url);</pre>
 
 <footer>
   <div class="container foot">
-    <div class="logo">СОЮЗ<span style="color:var(--orange)"> AI</span></div>
+    <div class="logo">СОЮЗ<span class="ai">AI</span></div>
     <div>© 2026 СОЮЗ · Единый слой генеративного AI</div>
     <div class="links">
       <a href="#features">Возможности</a>
