@@ -63,7 +63,19 @@
   .hero .container { position: relative; z-index: 1; text-align: center; }
   .label { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
   .label .tick { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 12px var(--orange); }
-  .mark-word { font-family: "Unbounded", sans-serif; font-weight: 800; font-size: clamp(64px, 15vw, 168px); line-height: 0.92; letter-spacing: 0.01em; background: linear-gradient(168deg, #F6DCC8 0%, #E0A788 20%, #B5654A 42%, #F2C9AE 58%, #C3745E 78%, #8C4631 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: drop-shadow(0 6px 24px rgba(0,0,0,0.5)); margin-bottom: 6px; }
+  .mark-word {
+    font-family: "Unbounded", sans-serif; font-weight: 800; font-size: clamp(64px, 15vw, 168px);
+    line-height: 0.92; letter-spacing: 0.01em; margin-bottom: 24px;
+    background-image:
+      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>"),
+      linear-gradient(168deg, #F6DCC8 0%, #E0A788 20%, #B5654A 42%, #F2C9AE 58%, #C3745E 78%, #8C4631 100%);
+    background-size: 240px 240px, 100% 100%;
+    background-repeat: repeat, no-repeat;
+    background-blend-mode: overlay;
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 6px 24px rgba(0,0,0,0.5));
+  }
   .hero h1 { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: clamp(22px, 3.4vw, 36px); line-height: 1.12; letter-spacing: -0.01em; max-width: 18ch; margin: 0 auto; }
   .hero h1 .o { color: var(--orange); }
   .hero p.lead { font-size: clamp(16px, 2.2vw, 19px); color: var(--muted); max-width: 580px; margin: 20px auto 26px; }
