@@ -7,9 +7,9 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<title>СОЮЗ — один стабильный API ко всем нейросетям</title>
-<meta name="description" content="СОЮЗ (Souz AI) — единый надёжный API к десяткам нейросетей: изображения, видео, аудио и текст. Без простоев, async-генерация, вебхуки, прозрачные расходы." />
-<meta property="og:title" content="СОЮЗ — один стабильный API ко всем нейросетям" />
+<title>СОЮЗ — провайдер всех нейросетей | один API для генерации</title>
+<meta name="description" content="СОЮЗ (Souz AI) — провайдер всех нейросетей: изображения, видео, аудио и текст через один стабильный API. Без простоев, async-генерация, вебхуки, прозрачные расходы." />
+<meta property="og:title" content="СОЮЗ — провайдер всех нейросетей" />
 <meta property="og:description" content="Изображения, видео, аудио и текст от десятков моделей через единый надёжный интерфейс." />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#141518" />
@@ -73,12 +73,14 @@
   .hero .container { text-align: center; }
   .label { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
   .label .tick { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+  .hero-title { margin: 0 auto 30px; }
+  .t-pre { display: block; font-family: "Unbounded", sans-serif; font-weight: 500; font-size: clamp(20px, 2.8vw, 32px); color: var(--muted); margin-bottom: 2px; }
   .mark-word {
-    font-family: "Unbounded", sans-serif; font-weight: 800; font-size: clamp(64px, 15vw, 168px);
-    line-height: 0.92; letter-spacing: 0.01em; margin-bottom: 24px; color: var(--text);
+    display: block; font-family: "Unbounded", sans-serif; font-weight: 800; font-size: clamp(64px, 15vw, 168px);
+    line-height: 0.92; letter-spacing: 0.01em; color: var(--text);
   }
-  .hero h1 { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: clamp(22px, 3.4vw, 36px); line-height: 1.12; letter-spacing: -0.01em; max-width: 18ch; margin: 0 auto; }
-  .hero h1 .o { color: var(--orange); }
+  .t-post { display: block; font-family: "Unbounded", sans-serif; font-weight: 700; font-size: clamp(22px, 3.6vw, 42px); line-height: 1.06; letter-spacing: -0.01em; margin-top: 6px; }
+  .t-post .o { color: var(--orange); }
   .hero p.lead { font-size: clamp(16px, 2.2vw, 19px); color: var(--muted); max-width: 580px; margin: 20px auto 26px; }
   .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; justify-content: center; }
   .tagpill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1px solid var(--hair); border-radius: 999px; font-size: 13px; color: var(--text); background: var(--bg-2); }
@@ -195,9 +197,11 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <span class="label"><span class="tick"></span> Провайдер нейросетей · один API</span>
-      <div class="mark-word display">СОЮЗ</div>
-      <h1 class="display">Один <span class="o">стабильный</span> API ко всем нейросетям</h1>
+      <h1 class="hero-title display">
+        <span class="t-pre">Это ваш</span>
+        <span class="mark-word">СОЮЗ</span>
+        <span class="t-post">провайдер <span class="o">всех нейросетей</span></span>
+      </h1>
       <p class="lead">Изображения, видео, аудио и текст от десятков моделей — через единый надёжный интерфейс. Без простоев, с предсказуемым форматом ответа.</p>
       <div class="hero-tags">
         <span class="tagpill"><b>99.9%</b> аптайм</span>
