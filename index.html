@@ -95,6 +95,19 @@
   .code-bar .name { margin-left: 8px; font-size: 13px; color: #8B8E96; }
   .code pre { margin: 0; padding: 24px; font-size: 13.5px; line-height: 1.75; overflow-x: auto; font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace; color: #E6E7EA; }
   .code .c { color: #7C7166; } .code .o { color: #FF8A52; } .code .s { color: #E9B486; }
+  .codenote { max-width: 680px; margin: 16px auto 0; color: var(--muted); font-size: 14px; text-align: center; }
+  .codenote b { color: var(--text); } .codenote code { color: var(--orange); font-family: "SF Mono", Menlo, monospace; font-size: 13px; }
+
+  /* stats band */
+  .statband { border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .stats { display: grid; grid-template-columns: repeat(4,1fr); }
+  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2,1fr); } }
+  .stat { padding: 32px 16px; text-align: center; border-left: 1px solid var(--hair); }
+  .stat:first-child { border-left: none; }
+  @media (max-width: 640px) { .stat:nth-child(odd) { border-left: none; } .stat:nth-child(n+3) { border-top: 1px solid var(--hair); } }
+  .stat .num { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 42px); letter-spacing: -0.01em; line-height: 1; }
+  .stat .num .o { color: var(--orange); }
+  .stat .lbl { color: var(--muted); font-size: 14px; margin-top: 8px; }
 
   /* sections */
   section { padding: 84px 0; }
@@ -206,6 +219,7 @@
       <div class="hero-tags">
         <span class="tagpill"><b>99.9%</b> аптайм</span>
         <span class="tagpill">Один ключ</span>
+        <span class="tagpill">OpenAI SDK</span>
         <span class="tagpill">Async + вебхуки</span>
         <span class="tagpill">Pay as you go</span>
       </div>
@@ -225,6 +239,19 @@ POST https://api.souz.ai/v1/generations
 }
 
 <span class="o">← 202 Accepted</span>  { <span class="s">"job_id"</span>: <span class="s">"job_8fK2…"</span>, <span class="s">"status"</span>: <span class="s">"queued"</span> }</pre>
+      </div>
+      <p class="codenote">Совместимо с <b>OpenAI SDK</b> — меняете только <code>baseURL</code>, остальной код не трогаете.</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="statband" style="padding:0">
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><div class="num">50<span class="o">+</span></div><div class="lbl">моделей в одном API</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">типа генерации</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">ключ и интеграция</div></div>
+        <div class="stat"><div class="num">99.9<span class="o">%</span></div><div class="lbl">целевой аптайм</div></div>
       </div>
     </div>
   </section>
@@ -279,6 +306,8 @@ POST https://api.souz.ai/v1/generations
         <div class="feat"><div class="n">🎯</div><h3>Предсказуемый результат</h3><p>Единый формат запроса и ответа для всех моделей, идемпотентность, понятные коды ошибок. Без сюрпризов в проде.</p></div>
         <div class="feat"><div class="n">⚡</div><h3>Async + вебхуки</h3><p>Длинные генерации без таймаутов: ставим задачу в очередь, отдаём статусы и присылаем результат вебхуком.</p></div>
         <div class="feat"><div class="n">📊</div><h3>Прозрачность расходов</h3><p>Логи каждого запроса и usage по каждому вызову. Вы всегда видите, за что платите, и контролируете бюджет.</p></div>
+        <div class="feat"><div class="n">🔒</div><h3>Контроль данных</h3><p>Тонкие политики приватности: вы решаете, каким моделям и провайдерам уходят ваши промпты. Ничего лишнего на сторону.</p></div>
+        <div class="feat"><div class="n">🔌</div><h3>OpenAI-совместимость</h3><p>Тот же формат, что у OpenAI SDK. Переключаетесь на СОЮЗ сменой <code>baseURL</code> — переписывать интеграцию не нужно.</p></div>
       </div>
     </div>
   </section>
